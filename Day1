@@ -114,5 +114,6 @@ find $HOME/1123 | egrep *.txt
 4. Copy all files in the $HOME/1123 directory, that end in ".txt", and omit files containing a tilde "~" character, to directory $HOME/CUT.
 cp $(find $HOME/1123/ -name *.txt ! -name *~*) $HOME/CUT/
 
-5.
-
+5. Using ONLY the find command, find all empty files/directories in directory /var and print out ONLY the filename (not absolute path), and 
+the inode number, separated by newlines.
+find /var/ -empty -printf "%i %f\n"
