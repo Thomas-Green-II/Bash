@@ -116,5 +116,9 @@ find $HOME/1123 | egrep *.txt
 cp $(find $HOME/1123/ -name *.txt ! -name *~*) $HOME/CUT/
 
 5. Using ONLY the find command, find all empty files/directories in directory /var and print out ONLY the filename (not absolute path), and 
-the inode number, separated by newlines.
+   the inode number, separated by newlines.
 find /var/ -empty -printf "%i %f\n"
+
+6. Using ONLY the find command, find all files on the system with inode 4026532575 and print only the filename to the screen, not the 
+   absolute path to the file, separating each filename with a newline. 
+find -inum 4026532575 -printf "%f\n"
