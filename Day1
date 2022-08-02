@@ -63,7 +63,7 @@ cat /etc/passwd | egrep /bash -B2 <------ Grabs the two lines before what you gr
 
 CUT command
 tail /etc/passwd | cut -d: -f1 <---------- -d is the delimeter (what to split the fields up by, in this case it is a colon) and -f is the field
-tail /etc/passwd | cut -d: -f1- <--------- -f- tkes the field of choice an everything after it on that line
+tail /etc/passwd | cut -d: -f1- <--------- -f- takes the field of choice an everything after it on that line
 tail /etc/passwd | cut -d: -f1- -s <--------- -s checks to make sure the delimeter is in the line
 
 
