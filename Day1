@@ -38,6 +38,7 @@ find <----- Search for files
 - find -iname bad* <------- ignores casing (can be lowercase or uppercase)
 - find -type f <------ Searches for files
 - find -type d <------ Searches for directories
+- find -inum #### <------ Searches for a file at inode ####
 - find -mtime 2 <----- Searches for anything modified in the past 2 days
 - find -empty <------ find anythion in the current directory that is empty
 - find -e <----- find executable files in the current directory
