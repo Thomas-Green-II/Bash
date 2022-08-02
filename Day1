@@ -1,0 +1,43 @@
+FOR HELP
+# Cheat.sh is an online tool that helps the user understand bash without the density of the man page
+# CTRL U deletes everything behind your cursor
+# After using history, if you want to navigate to an exact command you can type ! and the number of the command listed in the history list
+
+COMMANDS 
+Touch filename <----- Creates a file, change the timestamp of a file (use man page for exactly how to change what time)
+Touch A1 A2 A3 <------- touches three files by just using spaces
+touch -t = set the time (yyyymmddhhmm.ss)
+touch -m = change modified time
+ls <------ list contents of the current directory
+file filename <----- see what type of file a file is, if there is nothing in it it will return empty
+mkdir test <------- makes a directory called test
+rmdir test <-------- removes the directory called test
+cd <------ change directory
+pwd <------- prints the current directory
+whoami <----- what user are you logged into
+hostname <---- what device you are using
+alias <------ Sets an alias to a command
+mv moveme ./BASH <------ moves a file called moveme to your BASH directory
+cp <----- copies a file to a new location
+rm A* <---- removes everything that starts with "A"
+rm *.txt <------ removes anything that ends with ".txt"
+ln -s file1 newfileref <------- makes a symbolically linked connection between file1 and your new link called newfileref
+-  Symbolic links print what the original file has, but when deleting it, it does nothing to the original file
+ln file hardlink <------- creates a hardlink for file called hardlink
+-  if the original file of a hardlink gets deleted the hardlink still stays, whereas a symbolic link would error out
+locate <------- search database for stuff thats already installed
+whereis <------- prived the filepaths that are used to get to a command
+find <----- Search for files
+- find -name bad* <------ searches based on any file named with bad in the beginning of the name
+- find -iname bad* <------- ignores casing (can be lowercase or uppercase)
+- find -type f <------ Searches for files
+- find -type d <------ Searches for directories
+- find -mtime 2 <----- Searches for anything modified in the past 2 days
+- find -empty <------ find anythion in the current directory that is empty
+- find -e <----- find executable files in the current directory
+- find / -maxdepth 2 <----- how many sub directories it will look (this one specifically looks at root and then 2 sub directories)
+mkfifo p testpipe <----- makes a named p called testpipe
+- cat shadow.txt | grep student <------ piped the output of the cat to a grep for that file
+
+FILES
+bashrc <------ file your current session uses
