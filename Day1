@@ -43,8 +43,8 @@ find <----- Search for files
 - find -e <----- find executable files in the current directory
 - find / -maxdepth 2 <----- how many sub directories it will look (this one specifically looks at root and then 2 sub directories)
 - find /tmp -name core -type f -print0 | xargs -0 /bin/rm <--------- find in the /tmp directory, a file named core and pipe it to the next command
-- find ./ -iname "*.txt" -printf "%inode %file\n" <------- printf formats the the print statement to exaclty how you want the information received.
-                       This print f prints it as the hard location(inode) of the file and the file itslef
+- find ./ -iname "*.txt" -printf "%i %f\n" <------- printf formats the the print statement to exaclty how you want the information received. 
+  i = inode, f = file
 - find ./ -type d -exec ls -l {} \; <------ finds all the directories in the current directory and ran an ls -l
 find ./find/ ! -name *.sh -name 1* <------ return anything that isnt a .sh file and starts with 1
 find /* 2>|grep "Permission Denied"  <----- take a standard error with "Permission denied"
