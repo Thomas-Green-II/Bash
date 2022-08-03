@@ -55,3 +55,19 @@ alias -p <---- presents all current set aliases
 alias nano='vim' <------ sets the alias called "nano" to run vim
 \command <----- if you named an alias a command name, the backslash will run the command and not the alias
 unalias nano <------ remove an alias called "nano"
+
+
+CONDITIONALS:
+IF STATEMENT
+ #!/bin/bash
+ 
+ if [[ conditions ]]; then
+     commands
+ elif [[ conditions ]]; then
+     commands
+ else
+     commands
+ fi  
+
+run using: sudo chmod +x scriptname.sh
+           ./haha.sh
