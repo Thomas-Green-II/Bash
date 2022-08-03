@@ -110,3 +110,12 @@ egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}' StoryHiddenIPs | sort | uniq -c | sort -n
    Print only the msg itself, omitting the bracketed numerical expressions ie: [1.132775]
 dmesg | egrep  'BIOS|CPU' | egrep -vi 'reserved|usable' | cut -d"]" -f2-
 
+4.Write a Bash script using "Command Substitution" to replace all passwords, using openssl, from the file $HOME/PASS/shadow.txt with the MD5 encrypted 
+  password: Password1234, with salt: bad4u
+  Output of this command should go to the screen/standard output.
+  You are not limited to a particular command, however you must use openssl. Type man openssl passwd for more information.
+
+
+5. Using ONLY sed, write all lines from $HOME/passwd into $HOME/PASS/passwd.txt that do not end with either /bin/sh or /bin/false.
+   sed '/\/bin\/false/d;/\/bin\/sh/d' $HOME/passwd > $HOME/PASS/passwd.txt
+
