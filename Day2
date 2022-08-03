@@ -105,4 +105,8 @@ egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}' StoryHiddenIPs | sort | uniq -c | sort -n
    The input file is named $HOME/passwd and is located in the current directory.
    Output the results to a file called $HOME/SED/names.txt
  awk 'NR==5, NR==44 {print NR,$0}' $HOME/passwd | awk  -F: '($7 == "/bin/bash") {print $1,$7}' | awk 'BEGIN {FS=" "} {print $2}' > $HOME/SED/names.txt
+ 
+3. Find all dmesg kernel messages that contain CPU or BIOS (uppercase) in the string, but not usable or reserved (case-insensitive)
+   Print only the msg itself, omitting the bracketed numerical expressions ie: [1.132775]
+dmesg | egrep  'BIOS|CPU' | egrep -vi 'reserved|usable' | cut -d"]" -f2-
 
