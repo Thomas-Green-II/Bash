@@ -37,6 +37,6 @@ sed 's/tea/coffee/g' tea.txt <----- substitute every instance of "tea" with the 
 sed '5 s/tea/coffee' tea.txt <------ substitute the first instance of "tea" with the word "coffee" on line 5
 sed '5 s/tea/coffee/g' tea.txt <----- substitute every instance of "tea" with the word "coffee" on line 5
 sed '$d' tea.txt <------ deletes the last line of tea.txt
-sed '$#,d' tea.txt <------ deletes the nth line of tea.txt
+sed '#d' tea.txt <------ deletes the nth line of tea.txt
 sed -i <------ hides the string
 sed -e <----- allows scripting
