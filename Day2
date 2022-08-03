@@ -31,7 +31,7 @@ sort -k 3,3 -k 1,1 coffeetable.txt <------ setting a range and establishing whic
 
 
 
-SED COMMAND <----- Editor
+SED COMMAND <----- Editor. When usig sed, it uses "/" to start and finish the string in which you choose
 sed 's/tea/coffee' tea.txt <---- substitute the first instance of "tea" with the word "coffee"
 sed 's/tea/coffee/g' tea.txt <----- substitute every instance of "tea" with the word "coffee"
 sed '5 s/tea/coffee' tea.txt <------ substitute the first instance of "tea" with the word "coffee" on line 5
