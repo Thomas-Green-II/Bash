@@ -40,3 +40,18 @@ sed '$d' tea.txt <------ deletes the last line of tea.txt
 sed '#d' tea.txt <------ deletes the nth line of tea.txt
 sed -i <------ hides the string
 sed -e <----- allows scripting
+
+
+UNIQ COMMAND <------ finds repeated lines (patterns) by comparing one line to the very next line... USE SORT BEFORE UNIQ
+uniq -c file.txt <----- counts how many times each line was printed in the same text
+uniq -d file.txt <----- what line repeated the most
+uniq -D file.txt <----- Pulls groups of duplicate lines and displays them
+uniq -u <------ shows the unique lines
+uniq -t <------ shows the repeated strings regardless of capitalization
+
+
+ALIAS COMMAND
+alias -p <---- presents all current set aliases
+alias nano='vim' <------ sets the alias called "nano" to run vim
+\command <----- if you named an alias a command name, the backslash will run the command and not the alias
+unalias nano <------ remove an alias called "nano"
