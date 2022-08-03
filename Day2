@@ -41,6 +41,7 @@ sed '$d' tea.txt <------ deletes the last line of tea.txt
 sed '#d' tea.txt <------ deletes the nth line of tea.txt
 sed -i <------ hides the string
 sed -e <----- allows scripting
+sed -e '/\bin\sd/d' -e /\bin/\dalse/d' $HOME/PASS/passwd <------ -e allows  multiple sed to occur in one command line
 
 
 UNIQ COMMAND <------ finds repeated lines (patterns) by comparing one line to the very next line... USE SORT BEFORE UNIQ
