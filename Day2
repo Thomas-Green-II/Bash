@@ -99,3 +99,10 @@ EXERCISES
 egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}' StoryHiddenIPs | sort | uniq -c | sort -nr
 
 
+
+2. Using ONLY the awk command, write a BASH one-liner script that extracts ONLY the names of all the system and user accounts that are not UIDs 0-3.
+   Only display those that use /bin/bash as their default shell.
+   The input file is named $HOME/passwd and is located in the current directory.
+   Output the results to a file called $HOME/SED/names.txt
+ awk 'NR==5, NR==44 {print NR,$0}' $HOME/passwd | awk  -F: '($7 == "/bin/bash") {print $1,$7}' | awk 'BEGIN {FS=" "} {print $2}' > $HOME/SED/names.txt
+
