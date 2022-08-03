@@ -1,1 +1,42 @@
 locate <----- use update before... looks through a database
+
+AWK COMMAND <---- scan a file line by line, contains lines for any pattern you are looking for, split the lines by fields, change format for certain files
+awk '{print}' coffee.txt <---- print the whoe file
+awk '/coffee/ {print}' coffee.txt  <---- print only the lines that have "coffee" in them
+awk '/coffee/ {print NR,$0}' coffee.txt <----- NR,$0 prints out line numbers with the text
+awk 'NR==3, NR==8 {print NR,$0}' coffee.txt <------- Read lines 3-8 with line numbers included
+
+tail /etc/passwd | awk -F: '{print $NF}' <------ $NF signifies the last field
+
+tail /etc/passwd | awk -F: '{print $1,$5}' <------ returned the desired fields, 1 and 5
+                    OR
+tail /etc/passwd | awk 'BEGIN {FS=":"} '{print $1,$5}' <------- Same effect as the one above it
+
+tail /etc/passwd | awk -F: '{print $1, "and", $5} <------ Splits up the result with "and" in the middle
+
+
+
+SORT COMMAND <------ Arrange the lines of a file in particular order, by default it sorts by ASCII (lines with a number first with print first, followed
+by lines with capital letters, then lowercase letters.
+Does not change the file
+sort filename.ext <--------- Sorts the file
+sort -o beverages2.txt beverages.txt <------- destination file first, source file second
+sort -r beverages.txt <-------- sorts the file in reverse
+sort -nr beverages.txt <------ numbers first and in reverse
+sort -n beverages.txt <------- letters first, numbers second
+sort -m <------- sorts by month
+sort -u <----sort duplicates
+sort -k # coffeetable.txt <------ -k signifies sorting by colum and the number is the nth column
+sort -k 3,3 -k 1,1 coffeetable.txt <------ setting a range and establishing which colum you wish to be sorted where
+
+
+
+SED COMMAND <----- Editor
+sed 's/tea/coffee' tea.txt <---- substitute the first instance of "tea" with the word "coffee"
+sed 's/tea/coffee/g' tea.txt <----- substitute every instance of "tea" with the word "coffee"
+sed '5 s/tea/coffee' tea.txt <------ substitute the first instance of "tea" with the word "coffee" on line 5
+sed '5 s/tea/coffee/g' tea.txt <----- substitute every instance of "tea" with the word "coffee" on line 5
+sed '$d' tea.txt <------ deletes the last line of tea.txt
+sed '$#,d' tea.txt <------ deletes the nth line of tea.txt
+sed -i <------ hides the string
+sed -e <----- allows scripting
