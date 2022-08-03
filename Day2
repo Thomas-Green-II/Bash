@@ -71,3 +71,7 @@ IF STATEMENT
 
 run using: sudo chmod +x scriptname.sh
            ./haha.sh
+
+
+use GT for > when comparing numbers
+use LT for < when comparing numbers
