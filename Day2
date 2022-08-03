@@ -88,3 +88,14 @@ for f in /etc/*.conf     <------- for every item in /etc configuration files
 > echo "$f"         <--------- print each item to the screen
 > done
 
+
+
+
+
+
+EXERCISES
+1.Write a basic bash script that greps ONLY the IP addresses in the text file provided (named StoryHiddenIPs in the current directory); sort them 
+  uniquely by number of times they appear.
+egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}' StoryHiddenIPs | sort | uniq -c | sort -nr
+
+
