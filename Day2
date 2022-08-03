@@ -75,3 +75,16 @@ run using: sudo chmod +x scriptname.sh
 
 use GT for > when comparing numbers
 use LT for < when comparing numbers
+
+
+COMMAND SUBSTITUTION = making a variable for a command and using it in script or future commands
+A=$(tail /etc/passwd)  <------ Make the variable using a $ on the right side of the equation
+ech0 $A   <---- Call the variable with a $
+computer=$(hostname)
+
+echo "Running command @ $computer"
+for f in /etc/*.conf     <------- for every item in /etc configuration files
+> do
+> echo "$f"         <--------- print each item to the screen
+> done
+
