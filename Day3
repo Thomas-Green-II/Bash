@@ -113,3 +113,12 @@ find $HOME/ -type f -name "*.bin" | rev | cut -d/ -f2- | rev | sort -u
   /bin, /sbin, /usr/bin, /usr/sbin
   Sort the filenames with absolute path, and get the md5sum of the 10th file from the top of the list.
 md5sum $(find /sbin /bin /usr/bin /usr/sbin -executable -type f | sort | head | tail -1) | cut -d" " -f1
+
+3. Write a script which will copy the last entry/line in the passwd-like file specified by the $1 positional parameter
+   Modify the copied line to change:
+   User name to the value specified by $2 positional parameter
+   Used id and group id to the value specified by $3 positional parameter
+   Home directory to a directory matching the user name specified by $2 positional parameter under the /home directory
+   The default shell to `/bin/bash'
+   Append the modified line to the end of the file
+tail -1 $1 | awk -F: -v "name=$2" -v "id=$3" 'BEGIN {OFS=":"} {$1=name} {$3=id} {$4=id} {$6="/home/"name} {$7="/bin/bash"} {print}' >> $1
