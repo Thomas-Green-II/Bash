@@ -157,7 +157,7 @@ cat /etc/passwd | cut -d: -f4- | sort -n | head | tail -1 | cut -d: -f3 | md5sum
   Determine the count of unsuccessfully hashed directories.
   Have both counts output to the screen with an appropriate title for each count.
 
-md5sum $(find /bin /etc /var -maxdepth 3 -not -type p) 2>stderr.txt 1>MD.txt
+md5sum $(find {/bin,/etc,/var} -maxdepth 3 -not -type p) 2>stderr.txt 1>MD.txt
 a=$(wc -l MD.txt | cut -d" " -f1)
 b=$(grep "directory" stderr.txt | wc -l)
 echo "Successfully Hashed Files: $a"
