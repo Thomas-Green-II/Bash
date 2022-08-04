@@ -1,1 +1,28 @@
+VARIABLE MAKING
+var_a="Hello World"  <----- No spaces after or before the =
+echo $var_a  <----- Call the variable made with a $
+CONSTANT VARIABLES
+$#  <----- Number of arguments
+$0  <----- The name of the script
+$2  <----- The nth argument passed
+$*  <----- All of the arguments passed
+$?  <----- Exit status, should be sero
+$_  <----- Last argument povided, should be zero
+$$  <----- PID
+#-  <------ flags set in shell
 
+#!/bin/bash
+# This is a comment
+
+ESTABLISHING FUNCTIONS
+function print_somefun {
+echo Test function
+}
+
+OR
+
+somefun () {
+echo This is some function
+}
+
+somefun
