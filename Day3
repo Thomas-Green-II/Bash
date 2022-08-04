@@ -122,3 +122,10 @@ md5sum $(find /sbin /bin /usr/bin /usr/sbin -executable -type f | sort | head | 
    The default shell to `/bin/bash'
    Append the modified line to the end of the file
 tail -1 $1 | awk -F: -v "name=$2" -v "id=$3" 'BEGIN {OFS=":"} {$1=name} {$3=id} {$4=id} {$6="/home/"name} {$7="/bin/bash"} {print}' >> $1
+
+
+4. Using any BASH command complete the following:
+   Sort the /etc/passwd file numerically by the GID field.
+   For the 10th entry in the sorted passwd file, get an md5 hash of that entry’s home directory.
+   Output ONLY the MD5 hash of the directory's name to standard output.
+cat /etc/passwd | cut -d: -f4- | sort -n | head | tail -1 | cut -d: -f3 | md5sum | cut -d" " -f1
