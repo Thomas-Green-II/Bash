@@ -67,6 +67,12 @@ f1
 FUNCTIONS IN YOUR SHELL
 my_function () {echo "This is my function"; }
 
+OR
+
+function redirection_out {
+> declared -a output=("baeldung" "lorem" "ipsum")
+
+
 WHEN SCRIPTING:
 "" = interprets variables
 '' = interprets literal
@@ -92,3 +98,11 @@ Otherwise, print message as an error message on the standard error stream, and c
 ${variable:+replacement}
 Substitute replacement, but only if variable is defined and nonempty. Otherwise, substitute nothing for this construct.
 
+
+
+PRACTICE QUESTIONS
+1. Using find, find all files under the $HOME directory with a .bin extension ONLY.
+   Once the file(s) and their path(s) have been found, remove the file name from the absolute path output.
+   Ensure there is no trailing / at the end of the directory path when outputting to standard output.
+   You may need to sort the output depending on the command(s) you use.
+find $HOME/ -type f -name "*.bin" | rev | cut -d/ -f2- | rev | sort -u
