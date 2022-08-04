@@ -27,7 +27,7 @@ ln -s file1 newfileref <------- makes a symbolically linked connection between f
 ln file hardlink <------- creates a hardlink for file called hardlink
 -  if the original file of a hardlink gets deleted the hardlink still stays, whereas a symbolic link would error out
 locate <------- search database for stuff thats already installed
-whereis <------- prived the filepaths that are used to get to a command
+whereis <------- provides the filepaths that are used to get to a command
 mkfifo p testpipe <----- makes a named p called testpipe
 - cat shadow.txt | grep student <------ piped the output of the cat to a grep for that file
 
