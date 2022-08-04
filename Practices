@@ -1,1 +1,33 @@
+1. Using Brace-Expansion, create the following directories within the $HOME directory:
+   1123, 1134, 1145, 1156
+
+mkdir $HOME/{1123,1134,1145,1156}
+
+2. create files in the $HOME/1123
+   Files to create: 1.txt, 2.txt, 3.txt, 4.txt, 5.txt, 6~.txt, 7~.txt, 8~.txt, 9~.txt
+touch $HOME/1123/{1,2,3,4,5,6~,7~,8~,9~}.txt
+
+3. Using the find command, list all files in $HOME/1123 that end in .txt.
+find $HOME/1123 | egrep *.txt
+
+4. Copy all files in the $HOME/1123 directory, that end in ".txt", and omit files containing a tilde "~" character, to directory $HOME/CUT.
+cp $(find $HOME/1123/ -name *.txt ! -name *~*) $HOME/CUT/
+
+or 
+
+find $HOME/1123/ -name *.txt ! -name *~* $HOME/CUT/ -exec cp {} $HOME/CUT/. \;
+
+5. Using ONLY the find command, find all empty files/directories in directory /var and print out ONLY the filename (not absolute path), and 
+   the inode number, separated by newlines.
+find /var/ -empty -printf "%i %f\n"
+
+6. Using ONLY the find command, find all files on the system with inode 4026532575 and print only the filename to the screen, not the 
+   absolute path to the file, separating each filename with a newline. 
+find -inum 4026532575 -printf "%f\n"
+
+7. Using only the ls -l and cut Commands, write a BASH script that shows all filenames with extensions ie: 1.txt, etc., but no directories, in $HOME/CUT.
+   Write those to a text file called names in $HOME/CUT directory.
+   Omit the names filename from your output.
+ls -l ~/CUT | cut -d'.' -s -f1- | cut -d: -f2 | cut -d' ' -f2 > ~/CUT/names
+
 
