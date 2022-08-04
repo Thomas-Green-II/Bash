@@ -123,9 +123,8 @@ find $HOME -type f -iname "*.bin" | awk 'BEGIN{FS="/";OFS="/'"}{NF=NF-1; print $
   Sort the filenames with absolute path, and get the md5sum of the 10th file from the top of the list.
 
 md5sum $(find /sbin /bin /usr/bin /usr/sbin -executable -type f | sort | head | tail -1) | cut -d" " -f1
-
-OR
-
+      Indicator of 
+      command substitution
 
 
 
