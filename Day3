@@ -110,7 +110,12 @@ find $HOME/ -type f -name "*.bin" | rev | cut -d/ -f2- | rev | sort -u
 
 OR
 
-find $HOME -iname "*.bin" -printf "%h\n" |sort -u
+find $HOME -type f -iname "*.bin" -printf "%h\n" |sort -u
+
+OR
+
+find $HOME -type f -iname "*.bin" | awk 'BEGIN{FS="/";OFS="/'"}{NF=NF-1; print $0}
+
 
 
 2.Find all executable files under the following four directories:
@@ -133,6 +138,7 @@ OR
    Append the modified line to the end of the file
 
 tail -1 $1 | awk -F: -v "name=$2" -v "id=$3" 'BEGIN {OFS=":"} {$1=name} {$3=id} {$4=id} {$6="/home/"name} {$7="/bin/bash"} {print}' >> $1
+                                                                                                         or $NF (last field)
 
 
 4. Using any BASH command complete the following:
@@ -141,6 +147,7 @@ tail -1 $1 | awk -F: -v "name=$2" -v "id=$3" 'BEGIN {OFS=":"} {$1=name} {$3=id} 
    Output ONLY the MD5 hash of the directory's name to standard output.
 
 cat /etc/passwd | cut -d: -f4- | sort -n | head | tail -1 | cut -d: -f3 | md5sum | cut -d" " -f1
+
 
 
 5.Write a script which will find and hash the contents 3 levels deep from each of these directories: /bin /etc /var
