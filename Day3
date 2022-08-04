@@ -162,3 +162,5 @@ a=$(wc -l MD.txt | cut -d" " -f1)
 b=$(grep "directory" stderr.txt | wc -l)
 echo "Successfully Hashed Files: $a"
 echo "Unsuccessfully Hashed Directories: $b"
+
+chmod +x script.sh <-------- MUST DO TO RUN A SCRIPT
