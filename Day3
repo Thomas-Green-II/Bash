@@ -16,13 +16,79 @@ $$  <----- PID
 
 ESTABLISHING FUNCTIONS
 function print_somefun {
-echo Test function
+echo $2
 }
+
+print_somefun $1
 
 OR
 
-somefun () {
-echo This is some function
+somefun() {
+echo $1
 }
 
-somefun
+somefun $1      <------- call the function once its been made (within the script)
+
+
+EXAMPLE of Function
+#!/bin/bash
+# This is a basic function
+
+lines_in_file() {
+      cat $1 | wc -l
+}
+
+function num_lines=$( lines_in_file $1 )
+
+echo The file $1 has $num_lines in it.
+echo Good day sir
+
+
+ANOTHER EXAMPLE
+function f1 {
+        echo Hello I\'m function
+        echo Bye!
+}
+
+function f2 { Hello I\'m function 2; echo Bye! Bye!; }
+f3() {
+        echo Hello I\'m function 3
+        echo Bye!!!
+}
+f4 () { echo Hello I\'m function 4; echo Bye!! Bye!!; }
+
+#lets look at our functions
+f4
+f3
+f2
+f1
+
+
+FUNCTIONS IN YOUR SHELL
+my_function () {echo "This is my function"; }
+
+WHEN SCRIPTING:
+"" = interprets variables
+'' = interprets literal
+\ = escape individual characters
+
+
+
+
+VARIABLE SUBSTITUTION
+https://www.gnu.org/software/libc/manual/html_node/Variable-Substitution.html 
+
+{variable:-default}
+Substitute the value of variable, but if that is empty or undefined, use default instead.
+
+${variable:=default}
+Substitute the value of variable, but if that is empty or undefined, use default instead and set the variable to default.
+
+${variable:?message}
+If variable is defined and not empty, substitute its value.
+
+Otherwise, print message as an error message on the standard error stream, and consider word expansion a failure.
+
+${variable:+replacement}
+Substitute replacement, but only if variable is defined and nonempty. Otherwise, substitute nothing for this construct.
+
