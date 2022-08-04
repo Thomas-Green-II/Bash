@@ -63,13 +63,13 @@ CONDITIONALS:
 IF STATEMENT
  #!/bin/bash
  
- if [[ conditions ]]; then
+ if [[ -e conditions ]]; then           < ------ -e stands for "if it exists"
      commands
  elif [[ conditions ]]; then
      commands
- else
+ else                                   < ------ if the if statement does not work
      commands
- fi  
+ fi                                     < ------ close every if statement with a fi
 
 run using: sudo chmod +x scriptname.sh
            ./haha.sh
