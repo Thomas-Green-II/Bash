@@ -105,14 +105,24 @@ PRACTICE QUESTIONS
    Once the file(s) and their path(s) have been found, remove the file name from the absolute path output.
    Ensure there is no trailing / at the end of the directory path when outputting to standard output.
    You may need to sort the output depending on the command(s) you use.
+
 find $HOME/ -type f -name "*.bin" | rev | cut -d/ -f2- | rev | sort -u
 
+OR
+
+find $HOME -iname "*.bin" -printf "%h\n" |sort -u
 
 
 2.Find all executable files under the following four directories:
   /bin, /sbin, /usr/bin, /usr/sbin
   Sort the filenames with absolute path, and get the md5sum of the 10th file from the top of the list.
+
 md5sum $(find /sbin /bin /usr/bin /usr/sbin -executable -type f | sort | head | tail -1) | cut -d" " -f1
+
+OR
+
+
+
 
 3. Write a script which will copy the last entry/line in the passwd-like file specified by the $1 positional parameter
    Modify the copied line to change:
@@ -121,6 +131,7 @@ md5sum $(find /sbin /bin /usr/bin /usr/sbin -executable -type f | sort | head | 
    Home directory to a directory matching the user name specified by $2 positional parameter under the /home directory
    The default shell to `/bin/bash'
    Append the modified line to the end of the file
+
 tail -1 $1 | awk -F: -v "name=$2" -v "id=$3" 'BEGIN {OFS=":"} {$1=name} {$3=id} {$4=id} {$6="/home/"name} {$7="/bin/bash"} {print}' >> $1
 
 
@@ -128,7 +139,9 @@ tail -1 $1 | awk -F: -v "name=$2" -v "id=$3" 'BEGIN {OFS=":"} {$1=name} {$3=id} 
    Sort the /etc/passwd file numerically by the GID field.
    For the 10th entry in the sorted passwd file, get an md5 hash of that entry’s home directory.
    Output ONLY the MD5 hash of the directory's name to standard output.
+
 cat /etc/passwd | cut -d: -f4- | sort -n | head | tail -1 | cut -d: -f3 | md5sum | cut -d" " -f1
+
 
 5.Write a script which will find and hash the contents 3 levels deep from each of these directories: /bin /etc /var
   Your script should:
@@ -137,6 +150,7 @@ cat /etc/passwd | cut -d: -f4- | sort -n | head | tail -1 | cut -d: -f3 | md5sum
   Determine the count of files hashed in the file with hashes.
   Determine the count of unsuccessfully hashed directories.
   Have both counts output to the screen with an appropriate title for each count.
+
 md5sum $(find /bin /etc /var -maxdepth 3 -not -type p) 2>stderr.txt 1>MD.txt
 a=$(wc -l MD.txt | cut -d" " -f1)
 b=$(grep "directory" stderr.txt | wc -l)
