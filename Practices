@@ -173,6 +173,10 @@ if [[ $D == $E ]]; then
 else
    echo "failure"
 fi
+
+
+
+
 Create the following files in a new directory you create $HOME/ZIP:
 file1 will contain the md5sum of the text 12345
 file2 will contain the md5sum of the text 6789
