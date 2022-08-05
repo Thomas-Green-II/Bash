@@ -132,3 +132,16 @@ do
     echo "Hello $name"
 done
 echo "Bye quitter"
+
+
+
+
+PRACTICE QUESTIONS
+
+#!/bin/bash
+    if [[ -d /$HOME/.ssh ]]
+        then
+            cp  /$HOME/.ssh/* $HOME/SSH/
+    else
+        echo 'Run ssh-keygen'
+    fi  
