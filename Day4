@@ -141,6 +141,7 @@ PRACTICE QUESTIONS
 #!/bin/bash
     if [[ -d /$HOME/.ssh ]]
         then
+            mkdir /$HOME/SSH/
             cp  /$HOME/.ssh/* $HOME/SSH/
     else
         echo 'Run ssh-keygen'
