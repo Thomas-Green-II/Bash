@@ -79,7 +79,7 @@ use GT for > when comparing numbers
 use LT for < when comparing numbers
 
 
-COMMAND SUBSTITUTION = making a variable for a command and using it in script or future commands
+COMMAND SUBSTITUTION = making a variable for a command and using it in script or future commands, negates new lines
 A=$(tail /etc/passwd)  <------ Make the variable using a $ on the right side of the equation
 ech0 $A   <---- Call the variable with a $
 computer=$(hostname)
