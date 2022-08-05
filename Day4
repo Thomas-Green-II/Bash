@@ -31,7 +31,7 @@ fi
 
 LOOPS: WHILE, FOR, UNTIL
 
-WHILE        <------- While the statement is true continue the loop. Stop the loop when it is false
+WHILE   <------- While the statement is true continue the loop. Stop the loop when it is false. It will continue until there is a false or break statement
 #!/bin/bash
 while [ what test ]
 do
@@ -39,7 +39,19 @@ do
 done
 
 
-FOR         <------- for every item in the list apply the command to it
+counter=1
+while [[counter -le 10 ]
+do
+    echo $counter
+    counter=`expr $counter + 1`    <------ not a single quote
+done
+
+
+
+
+
+
+FOR    <------- for every item in the list apply the command to it
 #!/bin/bash
 for variable in list
 do
@@ -47,9 +59,74 @@ do
 done
 
 
-UNTIL       <------- Execute the command until the result is true
+#!/bin/bash
+names='Mike Lola Kim Dug Sherrly Vince Deez'
+for name in $names
+do
+    echo $names
+done
+echo "All done"
+
+
+for name in $names
+do
+    mkdir $HOME/$names       <------- makes a home directory for each name
+done
+echo "All done"
+
+
+
+UNTIL   <------- Execute the command until the result is true
 #!/bin/bash
 until test
 do
     commands
 done
+
+
+
+#!/bin/bash
+a=0
+until [[ $a -gt 10 ]]
+do
+    echo $a
+    a='expr $a +1'\
+done
+
+
+
+
+
+BREAK AND CONTINUE
+break <----- exit the loop
+continue <------ skip that iterattion of the loop and continue on to the next one
+
+
+RANGE
+for value in {1..20..2}   <------- count up by 2, starting at 1, without passing 20
+do
+    echo $value
+done
+
+
+
+
+SELECT
+#!/bin/bash
+select var in list
+do
+    commands
+done
+
+
+#!/bin/bash
+names='Nicki Jamie Rollie Rotty Nkenesliw Sam Folkawrr Quit'
+select name in $names
+do
+    if [[ $name == 'Quit" ]]
+    then
+        break
+    fi
+    echo Hello $name
+done
+echo Bye quitter
