@@ -1,0 +1,18 @@
+#!/bin/bash
+function getuserchoice ()
+{
+    echo "Make a choice [1,2,3]:"         <------this shows the user a prompt
+    read userchoice
+    case $userchoice in                   <------ a comparison of instances
+        (1) echo one ;;
+        (2) echo two ;;
+        (3) echo three
+        (*) echo other ;;
+    esac                                  <------ close case statement with "esac"
+}
+
+getuserchoice
+
+
+
+echo /home/student | md5sum          <-------- turns the name of a directory to the md5 hash
