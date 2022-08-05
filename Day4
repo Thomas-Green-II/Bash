@@ -16,3 +16,13 @@ getuserchoice
 
 
 echo /home/student | md5sum          <-------- turns the name of a directory to the md5 hash
+
+
+eho $$  <---------- PID of the shell
+echo $0 <--------- Name of script
+
+if [[ $# -lt 3 ]]; then
+echo "usage: bash $0 arg1 arg2 arg3";
+else
+echo $1 $2 $3
+fi
