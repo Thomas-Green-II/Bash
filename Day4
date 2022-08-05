@@ -29,4 +29,27 @@ fi
 
 
 
+LOOPS: WHILE, FOR, UNTIL
 
+WHILE        <------- While the statement is true continue the loop. Stop the loop when it is false
+#!/bin/bash
+while [ what test ]
+do
+    commands
+done
+
+
+FOR         <------- for every item in the list apply the command to it
+#!/bin/bash
+for variable in list
+do
+    commands
+done
+
+
+UNTIL       <------- Execute the command until the result is true
+#!/bin/bash
+until test
+do
+    commands
+done
