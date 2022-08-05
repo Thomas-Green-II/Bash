@@ -127,6 +127,6 @@ do
     then
         break
     fi
-    echo Hello $name
+    echo "Hello $name"
 done
-echo Bye quitter
+echo "Bye quitter"
