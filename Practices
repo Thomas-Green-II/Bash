@@ -167,7 +167,10 @@ Evaluate the response as being either successful or failure, and print an approp
 B=$(which ping)
 C=$($B -c 6 $A)
 D=$(echo $C | tail -2 | head -1 | awk -F"packets transmitted" '{print $1}' | awk -F" " '{print $NF}')
-E=$(echo $C | tail -2 | head -1 | awk -F"received" '{print $1}' | awk -F" " '{print $NF}')
+Write a bash script that will find all the files in the /etc directory, and obtains the octal permission of those files. The stat command will be useful for this task.
+Depending how you go about your script, you may find writing to the local directory useful. What you must seperate out from the initial results are the octal permissions of 0-640 and those equal to and greater than 642, ie 0-640 goes to low.txt, while 642 is sent to high.txt.
+Have your script uniquely sort the contents of the two files by count, numerically-reversed, and output the results, with applicable titles, to the screen. An example of the desired output is shown below.
+NOTE: There is a blank line being printed between the two sections of the output below.E=$(echo $C | tail -2 | head -1 | awk -F"received" '{print $1}' | awk -F" " '{print $NF}')
 if [[ $D == $E ]]; then
    echo "successful"
 else
@@ -207,3 +210,36 @@ do
 mkdir $HOME/$x
 echo $x:x:$(cat $HOME/$x.txt):$(cat $HOME/$x.txt):root:'$HOME'/$x:/bin/bash >> $HOME/passwd
 done
+
+
+OR
+
+rootline=$(head -1 $HOME/passwd)
+for x in {LARRY, CURLY, MOE} ; do
+   myuid=$(cat $HOME/$x.txt)
+   mkdir $HOME/$x
+   echo $rootline | awk -F: -v uu=$x -v ii=$myuid 'BEGIN{OFS=":"}{$1=$uu;$3=ii;$4=ii;$6="$HOME/"uu}{print $0} >> $HOME/passwd
+   done
+
+
+
+22. Write a bash script that will find all the files in the /etc directory, and obtains the octal permission of those files. The stat command will be useful for this task.
+Depending how you go about your script, you may find writing to the local directory useful. What you must seperate out from the initial results are the octal permissions of 0-640 and those equal to and greater than 642, ie 0-640 goes to low.txt, while 642 is sent to high.txt.
+Have your script uniquely sort the contents of the two files by count, numerically-reversed, and output the results, with applicable titles, to the screen. An example of the desired output is shown below.
+NOTE: There is a blank line being printed between the two sections of the output below.
+
+
+find /etc -type f -exec stat -c '%a' {} \; > ./A 2>/dev/null
+for x in $(cat ./A) ; do
+    if [[ $x -le 640 ]]; then
+        echo $x >> ./less3
+    elif [[ $x -ge 642 ]]; then
+        echo $x >> ./more3
+    fi
+done
+echo 'Files w/ OCTAL Perm Values 642+:'
+cat ./more3 | sort | uniq -c | sort -nr
+echo 
+echo 'Files w/ OCTAL Perm Values 0-640:'
+cat ./less3 | sort | uniq -c | sort -nr
+
