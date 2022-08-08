@@ -143,7 +143,7 @@ echo "Unsuccessfully Hashed Directories: $b"
 
 
 
-Design a script that detects the existence of directory: $HOME/.ssh
+18. Design a script that detects the existence of directory: $HOME/.ssh
 Upon successful detection, copies any and all files from within the directory $HOME/.ssh to directory $HOME/SSH and produce no output. You will need to create $HOME/SSH.
 Upon un-successful detection, displays the error message "Run ssh-keygen" to the user.
 #!/bin/bash
@@ -157,7 +157,7 @@ Upon un-successful detection, displays the error message "Run ssh-keygen" to the
     
     
     
-    Write a script that determines your default gateway ip address. Assign that address to a variable using command substitution.
+19.    Write a script that determines your default gateway ip address. Assign that address to a variable using command substitution.
 NOTE: Networking on the CTFd is limited for security reasons. ip route and route are emulated. Use either of those with no switches.
 Have your script determine the absolute path of the ping application. Assign the absolute path to a variable using command substitution.
 Have your script send six ping packets to your default gateway, utilizing the path discovered in the previous step, and assign the response to a variable using command substitution.
@@ -177,7 +177,7 @@ fi
 
 
 
-Create the following files in a new directory you create $HOME/ZIP:
+20. Create the following files in a new directory you create $HOME/ZIP:
 file1 will contain the md5sum of the text 12345
 file2 will contain the md5sum of the text 6789
 file3 will contain the md5sum of the text abcdef
@@ -193,7 +193,7 @@ tar -cvzf file.tar.gz file.zip
 
 
 
-Design a basic FOR Loop that iteratively alters the file system and user entries in a passwd-like file for new users: LARRY, CURLY, and MOE.
+21.  Design a basic FOR Loop that iteratively alters the file system and user entries in a passwd-like file for new users: LARRY, CURLY, and MOE.
 Each user should have an entry in the $HOME/passwd file
 The userid and groupid will be the same and can be found as the sole contents of a file with the user's name in the $HOME directory (i.e. $HOME/LARRY.txt might contain 123)
 The home directory will be a directory with the user's name located under the $HOME directory (i.e. $HOME/LARRY)
