@@ -188,7 +188,7 @@ touch $HOME/ZIP/file{1,2,3}
 echo 12345 | md5sum | cut -d" " -f1 > file1
 echo 6789 | md5sum | cut -d" " -f1 > file2
 echo abcdef | md5sum | cut -d" " -f1 > file3
-zip file.zip file1 file2 file3
+zip -j file.zip file1 file2 file3
 tar -cvzf file.tar.gz file.zip
 
 
